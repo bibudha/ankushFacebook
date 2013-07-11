@@ -33,12 +33,17 @@ var Facebook = {
 		 authorize_url += "&scope=publish_stream,offline_access"
 		 
 		 // Open Child browser and ask for permissions
+		 alert("now install child browser");
 		 client_browser = ChildBrowser.install();
 		 client_browser.onLocationChange = function(loc){
 			 Facebook.facebookLocChanged(loc);
 		 };
+		 
 		 if (client_browser != null) {
+		 	alert("child browser success");
 			window.plugins.childBrowser.showWebPage(authorize_url);
+		 }else{
+		 alert("child browser not found "+client_browser);
 		 }
 	},
 	facebookLocChanged:function(loc){
