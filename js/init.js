@@ -36,7 +36,8 @@ var Facebook = {
 			 
 			 // Open Child browser and ask for permissions
 			 alert("now install child browser");
-			 client_browser = ChildBrowser.install();
+			 //client_browser = ChildBrowser.install();
+			 client_browser = window.plugins.childBrowser;
 			 alert("error was here");
 			 client_browser.onLocationChange = function(loc){
 				 Facebook.facebookLocChanged(loc);
