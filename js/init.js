@@ -24,28 +24,39 @@ var client_browser;
 // FACEBOOK
 var Facebook = {
 	init:function(){
-		alert("facebook initialized");
-		// Begin Authorization
-		var authorize_url = "https://graph.facebook.com/oauth/authorize?";
-		 authorize_url += "client_id=" + my_client_id;
-		 authorize_url += "&redirect_uri=" + my_redirect_uri;
-		 authorize_url += "&display=" + my_display;
-		 authorize_url += "&scope=publish_stream,offline_access"
-		 
-		 // Open Child browser and ask for permissions
-		 alert("now install child browser");
-		 client_browser = ChildBrowser.install();
-		 client_browser.onLocationChange = function(loc){
-			 Facebook.facebookLocChanged(loc);
-		 };
-		 
-		 if (client_browser != null) {
-		 	alert("child browser success");
-			window.plugins.childBrowser.showWebPage(authorize_url);
-		 }else{
-		 alert("child browser not found "+client_browser);
-		 }
-	},
+		try
+		{
+
+			// Begin Authorization
+			var authorize_url = "https://graph.facebook.com/oauth/authorize?";
+			 authorize_url += "client_id=" + my_client_id;
+			 authorize_url += "&redirect_uri=" + my_redirect_uri;
+			 authorize_url += "&display=" + my_display;
+			 authorize_url += "&scope=publish_stream,offline_access"
+			 
+			 // Open Child browser and ask for permissions
+			 alert("now install child browser");
+			 client_browser = ChildBrowser.install();
+			 alert("error was here");
+			 client_browser.onLocationChange = function(loc){
+				 Facebook.facebookLocChanged(loc);
+			 };
+			 
+			 if (client_browser != null) {
+			 	alert("child browser success");
+				window.plugins.childBrowser.showWebPage(authorize_url);
+			 }else{
+			 alert("child browser not found "+client_browser);
+			 }
+			}
+			catch(err)
+			{
+			txt="There was an error on this page.\n\n";
+			txt+="Error description: " + err.message + "\n\n";
+			txt+="Click OK to continue.\n\n";
+			alert(txt);
+			}
+		},
 	facebookLocChanged:function(loc){
 		
 		// When the childBrowser window changes locations we check to see if that page is our success page.
