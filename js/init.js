@@ -67,7 +67,7 @@ var Facebook = {
 		}
 	},
 	share:function(url){
-		
+		alert("shared");
 		// Create our request and open the connection
 		var req = new XMLHttpRequest(); 
 		req.open("POST", url, true);
@@ -77,7 +77,7 @@ var Facebook = {
 		return req;
 	},
 	post:function(_fbType,params){
-			
+			alert("posted");
 		// Our Base URL which is composed of our request type and our localStorage facebook_token
 		var url = 'https://graph.facebook.com/me/'+_fbType+'?access_token='+localStorage.getItem(facebook_token);
 		
@@ -116,9 +116,11 @@ var Facebook = {
 // APP
 var app = {
 	bodyLoad:function(){
+		alert("ankush success");
 		document.addEventListener("deviceready", app.deviceReady, false);
 	},
 	deviceReady:function(){
+		alert("device ready");
 		app.init();
 	},
 	init:function(){
