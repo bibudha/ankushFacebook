@@ -13,7 +13,7 @@ This example will allow you to post to a users wall
 
 // GLOBAL VARS
 var my_client_id = "687342247948239", // YOUR APP ID
-	my_secret = "687342247948239", // YOUR APP SECRET 
+	my_secret = "5e16449faaa5e0b40974d6bb57a426c7", // YOUR APP SECRET 
 	my_redirect_uri = "https://www.facebook.com/connect/login_success.html", // LEAVE THIS
 	my_type ="user_agent", my_display = "touch"; // LEAVE THIS
 	
