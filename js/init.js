@@ -19,7 +19,7 @@ var my_client_id = "687342247948239", // YOUR APP ID
 	
 var facebook_token = "fbToken"; // OUR TOKEN KEEPER
 
-var client_browser;
+var client_browser=null;
 
 // FACEBOOK
 var Facebook = {
