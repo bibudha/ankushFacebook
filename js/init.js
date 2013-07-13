@@ -38,6 +38,7 @@ var Facebook = {
 			 alert("now install child browser");
 			 //client_browser = ChildBrowser.install();
 			 client_browser = window.plugins.childBrowser;
+			 alert(client_browser);
 			 alert("error was here");
 			 client_browser.onLocationChange = function(loc){
 				 Facebook.facebookLocChanged(loc);
